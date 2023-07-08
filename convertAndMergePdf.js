@@ -44,6 +44,14 @@ async function convertAndMergePDFs(
   const [pdf1Page] = await pdfDoc.copyPages(pdf1, [0]);
   pdfDoc.addPage(pdf1Page);
 
+  //if multiple pdf generated, eg: created multiple html files and prior pdf convertion to merging
+  //  for (const path of filePaths) {
+  //   const pdfBytes = fs.readFileSync(path);
+  //   const pdf = await PDFDocument.load(pdfBytes);
+  //   const [pdf1Page] = await pdfDoc.copyPages(pdf, [0]);
+  //   pdfDoc.addPage(pdf1Page);
+  // }
+
   for (const d of data) {
     if (fs.existsSync(d.path)) {
       if (d.mimetype === "application/pdf") {
